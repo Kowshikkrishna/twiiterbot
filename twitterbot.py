@@ -25,8 +25,9 @@ def limit_error(cursor):
         time.sleep(2000)
         
 def follow():
+    #can follow or unfollow anyone from your followers list
     for follower in limit_error(tweepy.Cursor(api.followers).items()):
-        if follower.name == 'popclick':
+        if follower.name == 'followername':
             follower.follow()
             print('found')
     else:
