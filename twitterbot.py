@@ -17,13 +17,13 @@ api = tweepy.API(auth)
 
 public_tweets = api.home_timeline()
 
-api = tweepy.API(auth)
 def limit_error(cursor):
     try:
         while True:
             yield cursor.next()
     except tweepy.RateLimitError:
         time.sleep(2000)
+        
 def follow():
     for follower in limit_error(tweepy.Cursor(api.followers).items()):
         if follower.name == 'popclick':
