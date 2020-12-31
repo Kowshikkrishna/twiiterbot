@@ -2,14 +2,14 @@
 """
 Created on Fri May  8 15:43:45 2020
 
-@author: kowsh
+@author: kowshikkrishna
 
 to use any of this features need to create a developer for twitter
 """
-#program to follow a random follower
+#program to automate some fn's in twitter
 import tweepy
 import time
-
+#use your own twitter account 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
@@ -34,8 +34,8 @@ def follow():
         print('not found')
 
 def like():
-#can change to like rt etc
-    for tweet in limit_error(tweepy.Cursor(api.search, 'poi').items(3)):
+#change the tweet object's function for any twitter function
+    for tweet in limit_error(tweepy.Cursor(api.search, 'random').items(3)):
         try:
             tweet.favorite()
             print('liked')
